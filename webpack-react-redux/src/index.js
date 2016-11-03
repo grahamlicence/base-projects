@@ -9,6 +9,7 @@ import registraions from './reducers';
 import App from './components/App';
 import Page2 from './components/Page2';
 import Home from './components/Home';
+import './sass/scaffold.scss';
 
 const enhancer = compose(
   persistState()

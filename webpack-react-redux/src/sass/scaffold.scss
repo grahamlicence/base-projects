@@ -1,0 +1,15 @@
+@import "vendor/normalize";
+
+body {
+    color: green;
+}
+
+* {
+    box-sizing: border-box;
+
+    &:after,
+    &:before {
+        box-sizing: border-box;
+        content: 'lol'
+    }
+}

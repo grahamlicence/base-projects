@@ -1,7 +1,10 @@
 // simple reset
+
+
 html, body {
     height: 100%;
 }
+
 body {
     padding: 0;
     margin: 0;
@@ -10,13 +13,4 @@ body {
 
 p {
     margin: 0 0 1em;
-}
-
-* {
-    box-sizing: border-box;
-
-    &:after,
-    &:before {
-        box-sizing: border-box;
-    }
 }
