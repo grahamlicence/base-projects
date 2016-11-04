@@ -5,7 +5,7 @@ import './home.scss';
 const Home = () => (
   <div>
     <Link to="/page2">page 2</Link>
-    <p>home</p>
+    <p>home ૱⏑°⸎</p>
   </div>
 );
 
