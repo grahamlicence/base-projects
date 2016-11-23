@@ -1,6 +1,7 @@
 {
   "name": "webpack-react-redux",
   "version": "0.0.1",
+  "author": "Graham Licence",
   "description": "React Webpack Base project",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
@@ -26,8 +27,10 @@
     "sass-loader": "^4.0.2"
   },
   "devDependencies": {
-    "babel-core": "6.17.0",
-    "babel-loader": "6.2.5",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.8",
     "babel-plugin-transform-class-properties": "^6.16.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-runtime": "^6.15.0",

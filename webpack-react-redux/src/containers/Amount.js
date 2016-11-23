@@ -6,9 +6,9 @@ const mapStateToProps = (state) => {
     return {
         amount: state.count.amount
     }
-}
+};
 
-let TotalAmount = ({ dispatch, amount }) => {
+const TotalAmount = ({ dispatch, amount }) => {
     const upClick = () => dispatch(up());
     const downClick = () => dispatch(down());
 
@@ -19,7 +19,8 @@ let TotalAmount = ({ dispatch, amount }) => {
             <button onClick={downClick}>down ⬇</button>
         </div>
     )
-}
-let Amount = connect(mapStateToProps)(TotalAmount)
+};
 
-export default Amount
+const Amount = connect(mapStateToProps)(TotalAmount);
+
+export default Amount;

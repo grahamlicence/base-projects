@@ -3,10 +3,10 @@ import { Link } from 'react-router';
 import './home.scss';
 
 const Home = () => (
-  <div>
-    <Link to="/page2">page 2</Link>
-    <p>home ૱⏑°⸎</p>
-  </div>
+    <div className="home">
+        <Link to="/page2">page 2</Link>
+        <p>home ૱⏑°⸎</p>
+    </div>
 );
 
 export default Home;

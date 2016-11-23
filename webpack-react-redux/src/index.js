@@ -12,20 +12,21 @@ import Home from './components/Home';
 import './sass/scaffold.scss';
 
 const enhancer = compose(
-  persistState()
+    persistState()
 );
+
 const store = createStore(registraions, enhancer);
 
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Home}/>
-        <Route path="page2" component={Page2}/>
-      </Route>
-    </Router>
-  </Provider>,
-  document.getElementById('app')
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Home}/>
+                <Route path="page2" component={Page2}/>
+            </Route>
+        </Router>
+    </Provider>,
+    document.getElementById('app')
 );
