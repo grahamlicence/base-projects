@@ -48,7 +48,7 @@ module.exports = {
 	devtool: process.env.WEBPACK_DEVTOOL || 'cheap-module-source-map',
 	output: {
 		path: path.join(__dirname, 'public'),
-		filename: 'bundle.js'
+		filename: '/bundle.js'
 	},
 	resolve: {
 		extensions: ['', '.js', '.jsx']
@@ -73,7 +73,8 @@ module.exports = {
 		new webpack.NoErrorsPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
-			template: './src/template.html'
+			template: './src/template.html',
+			title: 'Title'
 		}),
 	]
 };

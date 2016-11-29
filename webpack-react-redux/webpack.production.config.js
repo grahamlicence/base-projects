@@ -32,7 +32,7 @@ module.exports = {
 	],
 	output: {
 		path: path.join(__dirname, 'public'),
-		filename: '[chunkhash].js'
+		filename: '/[chunkhash].js'
 	},
 	resolve: {
 		extensions: ['', '.js', '.jsx']
