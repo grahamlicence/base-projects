@@ -2,3 +2,4 @@ node_modules
 logs
 public
 .DS_Store
+npm-debug.log
