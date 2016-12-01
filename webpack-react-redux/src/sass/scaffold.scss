@@ -1,7 +1,10 @@
 @import "vendor/normalize";
 
+html { font-size: 62.5%; }
+
 body {
-    color: green;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.4rem;
 }
 
 * {
