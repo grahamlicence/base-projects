@@ -1,0 +1,1 @@
+Simple set up for static sass/vanilla js site

@@ -1,0 +1,23 @@
+{
+  "name": "Santander",
+  "version": "0.0.1",
+  "author": "Graham Licence",
+  "description": "Santander finance calculator",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/grahamlicence/experiment.git"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "bash bin/build.sh",
+    "sass": "bash bin/sass.sh",
+    "lint": "bash bin/lint.sh"
+  },
+  "devDependencies": {
+    "express": "^4.14.0",
+    "node-sass": "^3.13.0",
+    "nodemon": "^1.11.0",
+    "sass-lint": "^1.10.2"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "extends": "eslint:recommended",
+  "rules": {
+    block-scoped-var: 2,
+    complexity: [2, {"max": 20}],
+    comma-style: [2, "last"],
+    eqeqeq: 2,
+    jsx-quotes: [2, "prefer-double"],
+    max-depth: [2, 4],
+    max-len: [2, 120],
+    no-alert: 2,
+    no-console: 0,
+    no-else-return: 2,
+    no-eq-null: 2,
+    no-lonely-if: 2,
+    one-var: 2,
+    prefer-const: 2,
+    prefer-template: 0,
+    semi: [2, "always"],
+    sort-vars: [0],
+    spaced-comment: 2,
+    valid-jsdoc: 2,
+    valid-typeof: 2,
+    vars-on-top: 2
+  },
+  "env": {
+    browser: true,
+    node: true,
+    jasmine: true,
+    jest: true,
+    es6: true
+  },
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "globals":{
+    "React": true,
+    "TestUtils": true,
+    "routerHelper": true
+  }
+}

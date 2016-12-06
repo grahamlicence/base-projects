@@ -1,0 +1,104 @@
+#scuk_calc {
+    background: blue;
+    font-family: ArialMT, Arial;
+    padding-bottom: 10px;
+}
+#scuk_calc * {
+    font-family: ArialMT, Arial;
+    box-sizing: border-box;
+}
+
+#scuk_calc .scuk_calc__header {
+    background: #f00;
+    color: #fff;
+}
+
+#scuk_calc .scuk_calc__toggle {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 50px;
+    background: #f00;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    width: 280px;
+    font-size: 14px;
+}
+
+#scuk_calc .scuk_calc__details {
+    display: none;
+}
+
+#scuk_calc .scuk_calc__details--visible {
+    display: block;
+}
+
+#scuk_calc .scuk_calc__form {
+    padding: 20px;
+}
+
+#scuk_calc .scuk_calc__welcome h1 {
+    display: none;
+}
+
+#scuk_calc .scuk_calc__welcome p {
+    display: none;
+}
+
+#scuk_calc .scuk_calc__cost {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #cecece;
+}
+
+#scuk_calc .scuk_calc__cost-text {
+    font-size: 10px;
+}
+
+#scuk_calc .scuk_calc__cost-price {
+    font-size: 50px;
+    color: #f00;
+}
+
+@media(min-width: 640px) {
+    #scuk_calc {
+        background: darkgrey;
+    }
+
+    #scuk_calc .scuk_calc__toggle {
+        padding: 20px;
+        text-align: center;
+        color: #f00;
+        background: #fff;
+        width: 100%;
+        border-radius: 0;
+        display: block;
+        cursor: pointer;
+    }
+
+    #scuk_calc .scuk_calc__welcome h1 {
+        font-family: ArialMT, Arial;
+        font-size: 26px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: -0.7px;
+        color: #ffffff;
+    }
+
+    #scuk_calc .scuk_calc__welcome p {
+        font-family: ArialMT, Arial;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.57;
+        color: #ffffff;
+    }
+}
