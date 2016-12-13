@@ -18,7 +18,7 @@ loaders.push({
 	test: /[\/\\]src[\/\\].*\.scss/,
 	exclude: /(node_modules|bower_components|public)/,
 	// loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
-	loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
+	loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass', 'sass-loader')
 });
 // global css files
 loaders.push({
@@ -40,6 +40,9 @@ module.exports = {
 	module: {
 		loaders
 	},
+    sassLoader: {
+        includePaths: [path.resolve(__dirname, "./src/sass")]
+    },
 	plugins: [
 		new WebpackCleanupPlugin(),
 		new webpack.DefinePlugin({

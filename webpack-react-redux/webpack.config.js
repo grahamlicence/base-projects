@@ -1,11 +1,12 @@
 "use strict";
-var webpack = require('webpack');
-var path = require('path');
-var loaders = require('./webpack.loaders');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const HOST = process.env.HOST || "127.0.0.1";
-const PORT = process.env.PORT || "8888";
+const webpack = require('webpack'),
+    path = require('path'),
+    chalk = require('chalk'),
+    packageJSON = require('./package.json'),
+    loaders = require('./webpack.loaders'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    HOST = process.env.HOST || "127.0.0.1",
+    PORT = process.env.PORT || "8000";
 
 // global css
 loaders.push({
@@ -24,6 +25,7 @@ loaders.push({
 		'style?sourceMap',
 		// 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
 		'css?importLoaders=1',
+        'sass-loader',
 		'postcss',
 		'sass'
 	]
@@ -69,6 +71,9 @@ module.exports = {
 		port: PORT,
 		host: HOST
 	},
+    sassLoader: {
+        includePaths: [path.resolve(__dirname, "./src/sass")]
+    },
 	plugins: [
 		new webpack.NoErrorsPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
