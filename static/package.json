@@ -1,13 +1,13 @@
 {
-  "name": "Santander",
+  "name": "Temp",
   "version": "0.0.1",
   "author": "Graham Licence",
-  "description": "Santander finance calculator",
+  "description": "Temp project mame",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/grahamlicence/experiment.git"
+    "url": "git+ssh://git@github.com/grahamlicence/base-projects.git"
   },
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "start": "bash bin/build.sh",
@@ -15,8 +15,8 @@
     "lint": "bash bin/lint.sh"
   },
   "devDependencies": {
-    "express": "^4.14.0",
-    "node-sass": "^3.13.0",
+    "express": "^4.15.5",
+    "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
     "sass-lint": "^1.10.2"
   }
