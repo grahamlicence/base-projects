@@ -1,4 +1,4 @@
 #!/bin/bash
 
-node-sass --include-path src src/main.scss   dist/assets/main.css
-nodemon -e scss -x "npm run sass" & node server.js
+cp -R templates/. dist/
+nodemon -e scss -x "npm run sass && npm run js" & node server.js
