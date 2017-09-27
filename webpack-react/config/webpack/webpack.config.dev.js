@@ -35,9 +35,11 @@ module.exports = {
     context: path.resolve(dir, 'src'),
 
     entry: [
+
+        // activate HMR for React
+        'react-hot-loader/patch',
         `webpack-dev-server/client?http://${HOST}:${PORT}`,
         'webpack/hot/only-dev-server',
-        // path.resolve(__dirname, 'src/js/index.js'),
         './app/index.js',
     ],
 
@@ -52,7 +54,7 @@ module.exports = {
 
     devServer: {
         filename: 'bundle.js',
-        contentBase: "./src",
+        contentBase: './src',
 
         // do not print bundle build stats
         noInfo: true,
@@ -80,4 +82,4 @@ module.exports = {
             title: 'Lorem ipsum'
         }),
     ],
-}
+};

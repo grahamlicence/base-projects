@@ -1,28 +1,41 @@
 import React, { Component } from 'react';
+import Header from '../common/Header';
 
 class App extends Component {
 
     constructor(props) {
         super(props);
 
+        console.log('we have an app 🙌');
+
         this.state = {
-            count: 1
+            clap: true
         };
 
-        this.increaseCount = this.increaseCount.bind(this);
+        this.interval = null;
+
+        this.clap = this.clap.bind(this);
     }
 
-    increaseCount() {
+    componentDidMount() {
+        this.interval = setInterval(this.clap, 500);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    clap() {
         this.setState({
-            count: this.state.count + 1
+            clap: !this.state.clap
         });
     }
     
     render() {
         return (
             <main className="main-content">
-                <p>{'{'}Insert app here{'}'}</p>
-                <p onClick={this.increaseCount}>Tot: {this.state.count}</p>
+                <Header />
+                <p>{'{'} Insert app here {this.state.clap ? '🙏' : '🙌'} {'}'}</p>
             </main>
         );
     }
