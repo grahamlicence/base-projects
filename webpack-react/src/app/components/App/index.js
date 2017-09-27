@@ -32,10 +32,12 @@ class App extends Component {
     }
     
     render() {
+        const hands = this.state.clap ? '🙏' : '🙌';
+
         return (
             <main className="main-content">
                 <Header />
-                <p>{'{'} Insert app here {this.state.clap ? '🙏' : '🙌'} {'}'}</p>
+                <p>{'{'} Insert app here {hands} {'}'}</p>
             </main>
         );
     }

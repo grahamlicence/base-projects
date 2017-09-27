@@ -5,8 +5,8 @@
   "description": "React Webpack Base project",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config config/webpack/webpack.config.prod.js --progress --profile --colors",
-    "start": "webpack-dev-server --config config/webpack/webpack.config.dev.js --progress --profile --colors",
+    "build": "rm -rf dist/* && NODE_ENV=production webpack --config config/webpack/webpack.config.prod.js --progress --profile --colors",
+    "start": "NODE_ENV=development webpack-dev-server --config config/webpack/webpack.config.dev.js --progress --profile --colors",
     "lint": "npm run eslint && npm run sasslint",
     "preeslint": "echo 'Running eslint'",
     "eslint": "eslint --ext js --ext jsx src || exit 0",
