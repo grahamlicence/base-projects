@@ -7,10 +7,7 @@ module.exports = [
     {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components|public)/,
-        loader: 'babel-loader',
-        query: {
-            plugins: ['transform-runtime', 'transform-decorators-legacy', 'transform-class-properties'],
-        }
+        loader: 'babel-loader'
     },
     {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,

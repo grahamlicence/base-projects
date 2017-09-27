@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs');
-const loaders = require('./webpack.loaders');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const loaders = require('./webpack.loaders');
 
 const dir = fs.realpathSync(process.cwd());
 

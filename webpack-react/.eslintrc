@@ -71,7 +71,11 @@
     'react/react-in-jsx-scope': 2,
     'react/require-render-return': 2,
     'react/self-closing-comp': 2,
-    'react/jsx-space-before-closing': [2, 'always'],
+    'react/jsx-tag-spacing': [2, {
+      "closingSlash": "never",
+      "beforeSelfClosing": "always",
+      "afterOpening": "never"
+    }],
     'react/sort-comp': [2, {
       order: [
         'static-methods',
@@ -109,9 +113,6 @@
     jasmine: true,
     jest: true,
     es6: true
-  },
-  "ecmaFeatures": {
-    "jsx": true
   },
   "globals":{
     "React": true,

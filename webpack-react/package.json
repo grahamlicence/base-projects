@@ -1,13 +1,17 @@
 {
-  "name": "webpack-react-redux",
-  "version": "0.0.1",
+  "name": "webpack-react",
+  "version": "0.1.0",
   "author": "Graham Licence",
   "description": "React Webpack Base project",
   "license": "MIT",
   "scripts": {
     "build": "webpack --config config/webpack/webpack.config.prod.js --progress --profile --colors",
     "start": "webpack-dev-server --config config/webpack/webpack.config.dev.js --progress --profile --colors",
-    "lint": "eslint --ext js --ext jsx src || exit 0"
+    "lint": "npm run eslint && npm run sasslint",
+    "preeslint": "echo 'Running eslint'",
+    "eslint": "eslint --ext js --ext jsx src || exit 0",
+    "presasslint": "echo 'Running sasslint'",
+    "sasslint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q"
   },
   "repository": {
     "type": "git",
@@ -20,6 +24,7 @@
   "devDependencies": {
     "autoprefixer": "^7.1.4",
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
@@ -28,12 +33,15 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
+    "eslint": "^4.7.2",
+    "eslint-plugin-react": "^7.4.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
     "react-hot-loader": "^3.0.0-beta.7",
+    "sass-lint": "^1.11.1",
     "sass-loader": "^6.0.6",
     "sass-resources-loader": "^1.3.1",
     "style-loader": "^0.18.2",
