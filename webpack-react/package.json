@@ -5,7 +5,8 @@
   "description": "React Webpack Base project",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist/* && NODE_ENV=production webpack --config config/webpack/webpack.config.prod.js --progress --profile --colors",
+    "prebuild": "rm -rf dist/*",
+    "build": "NODE_ENV=production webpack --config config/webpack/webpack.config.prod.js --progress --profile --colors",
     "start": "NODE_ENV=development webpack-dev-server --config config/webpack/webpack.config.dev.js --progress --profile --colors",
     "lint": "npm run eslint && npm run sasslint",
     "preeslint": "echo 'Running eslint'",
@@ -33,6 +34,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^7.0.0-beta.2",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.7.2",
     "eslint-plugin-react": "^7.4.0",

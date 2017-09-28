@@ -24,7 +24,7 @@ loaders.push({
                 // array of paths to sass resources (previously @import in each file)
                 resources: [
                     path.resolve(dir, 'src/sass/variables.scss'),
-                    path.resolve(dir, 'src/sass/mixins.scss')
+                    path.resolve(dir, 'src/sass/mixins.scss'),
                 ]
             }
         }
@@ -44,7 +44,15 @@ module.exports = {
     ],
 
     module: {
-        rules: loaders
+        rules: loaders,
+    },
+
+    resolve: {
+        alias: {
+            app: path.resolve(dir, 'src/app'),
+            sass: path.resolve(dir, 'src/sass'),
+            images: path.resolve(dir, 'src/images'),
+        },
     },
 
     output: {
@@ -70,7 +78,10 @@ module.exports = {
         port: PORT,
         host: HOST,
 
-        stats: { colors: true, errorDetails: true, }
+        stats: {
+            colors: true,
+            errorDetails: true,
+        },
     },
 
     plugins: [
@@ -79,7 +90,7 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({
             template: './template.html',
-            title: 'Lorem ipsum'
+            title: 'Lorem ipsum',
         }),
     ],
 };

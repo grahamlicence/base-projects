@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const loaders = require('./webpack.loaders');
 
 const dir = fs.realpathSync(process.cwd());
@@ -73,6 +74,14 @@ module.exports = {
         rules: loaders
     },
 
+    resolve: {
+        alias: {
+            app: path.resolve(dir, 'src/app'),
+            sass: path.resolve(dir, 'src/sass'),
+            images: path.resolve(dir, 'src/images'),
+        },
+    },
+
     output: {
         path: path.resolve(dir, 'dist'),
         filename: '[chunkhash].js'
@@ -80,11 +89,13 @@ module.exports = {
 
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
+
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"'
             }
         }),
+
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false,
@@ -93,12 +104,18 @@ module.exports = {
                 drop_debugger: true
             }
         }),
+
+        new CopyWebpackPlugin([
+            { from: './images', to: './images' }
+        ]),
+
         new ExtractTextPlugin('[contenthash].css', {
             allChunks: true
         }),
+
         new HtmlWebpackPlugin({
             template: './template.html',
             title: 'Lorem ipsum'
         }),
     ],
-}
+};
