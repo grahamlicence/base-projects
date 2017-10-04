@@ -26,8 +26,8 @@ loaders.push({
                     path.resolve(dir, 'src/sass/variables.scss'),
                     path.resolve(dir, 'src/sass/mixins.scss'),
                 ]
-            }
-        }
+            },
+        },
     ]
 });
 

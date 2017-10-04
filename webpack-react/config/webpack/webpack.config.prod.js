@@ -13,7 +13,7 @@ const dir = fs.realpathSync(process.cwd());
 loaders.push({
     test: /[\/\\]src[\/\\].*\.css/,
     exclude: /(node_modules|bower_components|public)/,
-    loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
+    loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'),
 });
 
 // local scss modules
@@ -22,45 +22,45 @@ loaders.push({
           // test: /\.scss$/,
         exclude: /(node_modules|dist)/,
         use: ExtractTextPlugin.extract({
-              fallback: 'style-loader',
-              use: [
-                  {
-                      loader: 'css-loader',
-                      options: {
-                          sourceMap: true,
-                          minimize: true,
-                      },
-                  },
-                  {
-                      loader: 'postcss-loader',
-                      options: {
-                          plugins: () => [
+            fallback: 'style-loader',
+            use: [
+                {
+                    loader: 'css-loader',
+                    options: {
+                        sourceMap: true,
+                        minimize: true,
+                    },
+                },
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: () => [
                             autoprefixer({
                                 browsers: [
-                                  '>1%',
-                                  'last 4 versions',
-                                  'Firefox ESR',
-                                  'not ie < 9', // React doesn't support IE8 anyway
+                                    '>1%',
+                                    'last 4 versions',
+                                    'Firefox ESR',
+                                    'not ie < 9', // React doesn't support IE8 anyway
                                 ],
-                                flexbox: 'no-2009',
-                            })],
-                          sourceMap: true,
-                      },
-                  },
-                  {
-                      loader: 'sass-loader',
-                      options: {
-                          sourceMap: true,
-                      },
-                  },
-              ],
-          }),
+                            flexbox: 'no-2009',
+                        })],
+                        sourceMap: true,
+                    },
+                },
+                {
+                    loader: 'sass-loader',
+                    options: {
+                        sourceMap: true,
+                    },
+                },
+            ],
+        }),
     });
 
 // global css files
 loaders.push({
     test: /[\/\\](node_modules|global)[\/\\].*\.css$/,
-    loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+    loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
 });
 
 module.exports = {
@@ -71,7 +71,7 @@ module.exports = {
     ],
 
     module: {
-        rules: loaders
+        rules: loaders,
     },
 
     resolve: {
@@ -84,7 +84,7 @@ module.exports = {
 
     output: {
         path: path.resolve(dir, 'dist'),
-        filename: '[chunkhash].js'
+        filename: '[chunkhash].js',
     },
 
     plugins: [
@@ -92,7 +92,7 @@ module.exports = {
 
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: '"production"'
+                NODE_ENV: '"production"',
             }
         }),
 
@@ -101,7 +101,7 @@ module.exports = {
                 warnings: false,
                 screw_ie8: true,
                 drop_console: true,
-                drop_debugger: true
+                drop_debugger: true,
             }
         }),
 
