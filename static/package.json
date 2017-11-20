@@ -2,7 +2,7 @@
   "name": "Temp",
   "version": "0.0.1",
   "author": "Graham Licence",
-  "description": "Temp project mame",
+  "description": "Lorem ipsum",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/grahamlicence/base-projects.git"
@@ -10,10 +10,16 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "bash bin/build.sh",
+    "prestart": "cp -a src/assets/. dist/assets/ && cp -a templates/. dist/ && npm run sass",
+    "start": "node server.js | npm run watch:sass | npm run js",
     "sass": "node-sass --include-path src src/main.scss   dist/assets/main.css",
+    "watch:sass": "onchange 'src/*.scss' -- npm run sass",
     "js": "babel src/main.js --watch --out-file dist/assets/main.js",
-    "lint": "bash bin/lint.sh"
+    "lint": "npm run eslint && npm run sasslint",
+    "preeslint": "echo 'Running eslint'",
+    "eslint": "eslint --ext js --ext jsx src",
+    "presasslint": "echo 'Running sasslint'",
+    "sasslint": "sass-lint -c .sass-lint.yml 'src/*.scss' -v -q"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -21,6 +27,7 @@
     "express": "^4.15.5",
     "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
+    "onchange": "^3.2.1",
     "sass-lint": "^1.10.2"
   }
 }
