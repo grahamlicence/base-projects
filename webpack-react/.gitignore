@@ -1,6 +1,7 @@
 node_modules
 logs
 public
+build
 dist
 .DS_Store
 npm-debug.log

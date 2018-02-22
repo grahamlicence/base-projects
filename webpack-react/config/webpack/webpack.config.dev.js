@@ -57,7 +57,7 @@ module.exports = {
 
     output: {
         filename: 'app.js',
-        path: path.resolve(dir, 'dist'),
+        path: path.resolve(dir, 'build'),
     },
 
     devServer: {
@@ -86,8 +86,11 @@ module.exports = {
 
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
+
         new webpack.HotModuleReplacementPlugin(),
+
         new webpack.NamedModulesPlugin(),
+
         new HtmlWebpackPlugin({
             template: './template.html',
             title: 'Lorem ipsum',

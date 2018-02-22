@@ -4,9 +4,13 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const loaders = require('./webpack.loaders');
+const ShakePlugin = require('webpack-common-shake').Plugin;
+const CSSNano = require('cssnano');
+const packageJSON = require('../../package.json');
 
+const loaders = require('./webpack.loaders');
 const dir = fs.realpathSync(process.cwd());
 
 // local css modules
@@ -20,7 +24,7 @@ loaders.push({
 loaders.push({
         test: /[\/\\]src[\/\\].*\.scss/,
           // test: /\.scss$/,
-        exclude: /(node_modules|dist)/,
+        exclude: /(node_modules|dist|build)/,
         use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
             use: [
@@ -83,18 +87,14 @@ module.exports = {
     },
 
     output: {
-        path: path.resolve(dir, 'dist'),
+        path: path.resolve(dir, 'build'),
         filename: '[chunkhash].js',
     },
 
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
 
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"',
-            }
-        }),
+        new ShakePlugin(),
 
         new webpack.optimize.UglifyJsPlugin({
             compress: {
@@ -108,9 +108,21 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: './images', to: './images' }
         ]),
+        
+        new OptimizeCssAssetsPlugin({
+            assetNameRegExp: /\.main\.css$/g,
+            cssProcessor: CSSNano,
+            cssProcessorOptions: { discardComments: { removeAll: true } },
+            canPrint: true,
+        }),
 
         new ExtractTextPlugin('[contenthash].css', {
             allChunks: true
+        }),
+
+
+        new webpack.BannerPlugin({
+            banner: `${packageJSON.version} v${packageJSON.version}`,
         }),
 
         new HtmlWebpackPlugin({

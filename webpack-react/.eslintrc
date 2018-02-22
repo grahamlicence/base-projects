@@ -1,11 +1,14 @@
 {
-  "extends": "eslint:recommended",
-  "rules": {
+  'extends': [
+    'eslint:recommended',
+    'plugin:jsx-a11y/recommended'
+  ],
+  'rules': {
     block-scoped-var: 2,
-    complexity: [2, {"max": 20}],
-    comma-style: [2, "last"],
+    complexity: [2, {'max': 20}],
+    comma-style: [2, 'last'],
     eqeqeq: 2,
-    jsx-quotes: [2, "prefer-double"],
+    jsx-quotes: [2, 'prefer-double'],
     max-depth: [2, 4],
     max-len: [2, 120],
     no-alert: 2,
@@ -16,10 +19,10 @@
     one-var: 0,
     prefer-const: 2,
     prefer-template: 2,
-    semi: [2, "always"],
+    semi: [2, 'always'],
     sort-vars: [2],
     spaced-comment: 2,
-    valid-jsdoc: 2,
+    valid-jsdoc: 0,
     valid-typeof: 2,
     vars-on-top: 2,
 
@@ -71,9 +74,9 @@
     'react/require-render-return': 2,
     'react/self-closing-comp': 2,
     'react/jsx-tag-spacing': [2, {
-      "closingSlash": "never",
-      "beforeSelfClosing": "always",
-      "afterOpening": "never"
+      'closingSlash': 'never',
+      'beforeSelfClosing': 'always',
+      'afterOpening': 'never'
     }],
     'react/sort-comp': [2, {
       order: [
@@ -90,7 +93,7 @@
       return: true
     }],
     'react/wrap-multilines': 0, 
-    'react/jsx-first-prop-new-line': [2, 'multiline'],
+    'react/jsx-first-prop-new-line': [0, 'multiline'],
     'react/jsx-equals-spacing': [2, 'never'],
     'react/jsx-indent': [2, 4],
     'react/jsx-no-target-blank': 2,
@@ -102,22 +105,32 @@
     'react/no-find-dom-node': 2,
     'react/forbid-component-props': [0, { forbid: [] }],
     
-    'react/no-danger-with-children': 0
+    'react/no-danger-with-children': 0,
+
+    'jsx-a11y/label-has-for': [ 2, {
+          'components': [ 'Label' ],
+          'required': {
+              'some': [ 'nesting', 'id' ]
+          },
+          'allowChildren': false
+      }]
   },
-  "env": {
+  'env': {
     browser: true,
     node: true,
     jasmine: true,
     jest: true,
     es6: true
   },
-  "globals":{
-    "React": true,
-    "TestUtils": true,
-    "routerHelper": true
+  'globals':{
+    'React': true,
+    'TestUtils': true,
+    'routerHelper': true,
+    'fetch': true
   },
-  "parser": "babel-eslint",
-  "plugins": [
-    "react"
+  'parser': 'babel-eslint',
+  'plugins': [
+    'react',
+    'jsx-a11y'
   ]
 }
