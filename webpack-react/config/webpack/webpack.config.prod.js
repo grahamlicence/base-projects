@@ -122,7 +122,7 @@ module.exports = {
 
 
         new webpack.BannerPlugin({
-            banner: `${packageJSON.version} v${packageJSON.version}`,
+            banner: `${packageJSON.name} v${packageJSON.version}`,
         }),
 
         new HtmlWebpackPlugin({

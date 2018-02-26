@@ -35,11 +35,8 @@ module.exports = {
     context: path.resolve(dir, 'src'),
 
     entry: [
-
-        // activate HMR for React
         'react-hot-loader/patch',
-        `webpack-dev-server/client?http://${HOST}:${PORT}`,
-        'webpack/hot/only-dev-server',
+        'webpack/hot/dev-server',
         './app/index.js',
     ],
 
@@ -87,7 +84,7 @@ module.exports = {
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
 
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
 
         new webpack.NamedModulesPlugin(),
 

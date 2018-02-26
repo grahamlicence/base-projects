@@ -5,6 +5,3 @@ build
 dist
 .DS_Store
 npm-debug.log
-
-# until issues fixed
-package-lock.json
