@@ -106,7 +106,13 @@ module.exports = {
         }),
 
         new CopyWebpackPlugin([
-            { from: './images', to: './images' }
+            { from: './images', to: './images' },
+            {
+                ignore: [
+                    '.DS_Store',
+                    '.gitkeep'
+                ]
+            }
         ]),
         
         new OptimizeCssAssetsPlugin({
