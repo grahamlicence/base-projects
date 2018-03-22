@@ -133,7 +133,13 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
 
         new CopyWebpackPlugin([
-            { from: './images', to: './images' }
+            { from: './images', to: './images' },
+            {
+                ignore: [
+                    '.DS_Store',
+                    '.gitkeep'
+                ]
+            }
         ]),
 
         new MiniCssExtractPlugin({
