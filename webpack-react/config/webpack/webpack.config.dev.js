@@ -6,7 +6,7 @@ const loaders = require('./webpack.loaders');
 
 const dir = fs.realpathSync(process.cwd());
 
-const HOST = process.env.HOST || '127.0.0.1';
+const HOST = process.env.HOST || '0.0.0.0';
 const PORT = process.env.PORT || '3000';
 
 // local scss modules
@@ -34,14 +34,16 @@ loaders.push({
 module.exports = {
     context: path.resolve(dir, 'src'),
 
-    entry: [
-        'react-hot-loader/patch',
-        'webpack/hot/dev-server',
-        './app/index.js',
-    ],
+    entry: './app/index.js',
+
+    mode: 'development',
 
     module: {
         rules: loaders,
+    },
+
+    performance: {
+        hints: false,
     },
 
     resolve: {

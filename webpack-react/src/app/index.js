@@ -1,27 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import App from './components/App/App';
+import App from './components/App/AppContainer';
 
 import '../sass/scaffold.scss';
 
-const rootEl = document.querySelector('.app');
-
-render(
-    <AppContainer>
-        <App />
-    </AppContainer>,
-    rootEl
-);
-
-if (module.hot) {
-    module.hot.accept('./components/App/App', () => {
-        const App = require('./components/App/App').default;
-
-        render(
-            <AppContainer>
-                <App />
-            </AppContainer>,
-        rootEl);
-    });
-}
+render(<App />, document.querySelector('.app'));

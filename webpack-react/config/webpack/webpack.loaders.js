@@ -7,41 +7,66 @@ module.exports = [
         exclude: /(node_modules)/,
         use: {
             loader: 'babel-loader',
+            options: {
+                cacheDirectory: true,
+                plugins: ['react-hot-loader/babel'],
+            },
         },
     },
     {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         exclude: /(node_modules)/,
-        loader: 'file-loader',
+        use: {
+            loader: 'file-loader',
+        },
     },
     {
         test: /\.(woff|woff2)$/,
         exclude: /(node_modules)/,
-        loader: 'url-loader?prefix=font/&limit=5000',
+        use: {
+            loader: 'url-loader?prefix=font/&limit=5000',
+        },
     },
     {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
         exclude: /(node_modules)/,
-        loader: 'url-loader?limit=10000&mimetype=application/octet-stream',
+        use: {
+            loader: 'url-loader?limit=10000&mimetype=application/octet-stream',
+        },
+    },
+    {
+        test: /\.otf(\?v=\d+\.\d+\.\d+)?$/,
+        exclude: /(node_modules)/,
+        use: {
+            loader: 'url-loader?limit=10000&mimetype=application/octet-stream',
+        },
     },
     {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         exclude: /(node_modules)/,
-        loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
+        use: {
+            loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
+        },
     },
     {
         test: /\.gif/,
         exclude: /(node_modules)/,
-        loader: 'url-loader?limit=30000&mimetype=image/gif',
+        use: {
+            loader: 'url-loader?limit=30000&mimetype=image/gif',
+        },
     },
     {
         test: /\.jpg/,
         exclude: /(node_modules)/,
-        loader: 'url-loader?limit=30000&mimetype=image/jpg',
+        use: {
+            loader: 'url-loader?limit=30000&mimetype=image/jpg',
+        },
     },
     {
         test: /\.png/,
         exclude: /(node_modules)/,
-        loader: 'url-loader?limit=30000&mimetype=image/png',
-    }
+        use: {
+            loader: 'url-loader?limit=30000&mimetype=image/png',
+        },
+    },
 ];
